@@ -16,15 +16,15 @@ class _LikedImagesState extends State<LikedImages> {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 3),
-                child: accountThumnails(context, 109, "imgDemo.png"),
+                child: accountThumnails(context, 109, "imgDemo2.jpeg"),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 3),
-                child: accountThumnails(context, 61, "imgDemo.png"),
+                child: accountThumnails(context, 61, "imgDemo2.jpeg"),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 3),
-                child: accountThumnails(context, 50, "imgDemo.png"),
+                child: accountThumnails(context, 50, "imgDemo2.jpeg"),
               ),
             ],
           ),
@@ -33,7 +33,7 @@ class _LikedImagesState extends State<LikedImages> {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 3),
-                child: accountThumnails(context, 19, "imgDemo.png"),
+                child: accountThumnails(context, 19, "imgDemo2.jpeg"),
               ),
             ],
           ),
