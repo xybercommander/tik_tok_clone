@@ -30,7 +30,7 @@ class _AccountState extends State<Account> {
             padding: EdgeInsets.symmetric(vertical: 10),
             child: Column(
               children: [
-                Text("data")
+                CircleAvatar(backgroundImage: AssetImage("assets/profilepic.jpg"),)
               ],
             ),
           )

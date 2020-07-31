@@ -14,7 +14,7 @@ class _ForYouState extends State<ForYou> {
         width: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/bgImg.jpg",),
+            image: AssetImage("assets/bgImg.jpg",),
             fit: BoxFit.fill
           )
         ),

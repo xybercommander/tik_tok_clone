@@ -14,7 +14,7 @@ class _FollowingState extends State<Following> {
         width: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/bgImg2.jpg",),
+            image: AssetImage("assets/bgImg2.jpg",),
             fit: BoxFit.fill
           )
         ),
