@@ -11,18 +11,20 @@ class _SearchState extends State<Search> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              width: double.infinity,
-              height: MediaQuery.of(context).size.height / 4,
-              decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage("assets/searchBg.jpg",), fit: BoxFit.cover)
+        child: SafeArea(
+          child: Column(
+            children: [
+              Container(
+                width: double.infinity,
+                height: MediaQuery.of(context).size.height / 4,
+                decoration: BoxDecoration(
+                  image: DecorationImage(image: AssetImage("assets/searchBg.jpg",), fit: BoxFit.cover)
+                ),
               ),
-            ),
-            trendingTag("welcome2020_india", "400k"),
-            thumbnailList(context, "itachi.jpg", "kakashi.jpg", "minato.jpg", "tanjiro.jpg")
-          ],
+              trendingTag("welcome2020_india", "400k"),
+              thumbnailList(context, "itachi.jpg", "kakashi.jpg", "minato.jpg", "kamado.jpg")
+            ],
+          ),
         ),
       ),
     );
