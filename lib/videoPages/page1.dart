@@ -80,8 +80,8 @@ class _VideoPage1State extends State<VideoPage1> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
-                      height: 40,
-                      width: 40,
+                      height: 45,
+                      width: 45,
                       child: CircleAvatar(
                         backgroundImage: AssetImage("assets/profilepic.jpg"),
                       ),
@@ -134,7 +134,7 @@ class _VideoPage1State extends State<VideoPage1> {
                       "This is the title here, This is video 1",
                       style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white, fontSize: 14, fontFamily: "Quicksand"),
                     ),
-                SizedBox(height: 17,),
+                SizedBox(height: 5,),
                 Row(
                   children: [
                     Text(
@@ -145,6 +145,18 @@ class _VideoPage1State extends State<VideoPage1> {
                     Text(
                       "@artistName",
                       style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white, fontSize: 11, fontFamily: "Quicksand"),
+                    ),
+                    Spacer(),
+                    Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black, width: 10),
+                        borderRadius: BorderRadius.circular(40)
+                      ),
+                      height: 66,
+                      width: 66,
+                      child: CircleAvatar(
+                        backgroundImage: AssetImage("assets/beatles.jpg"),
+                      ),
                     ),
                   ],
                 )
