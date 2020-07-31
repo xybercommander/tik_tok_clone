@@ -98,7 +98,7 @@ Widget thumbnailList(
     context, String pic1, String pic2, String pic3, String pic4) {
   return Container(
     width: MediaQuery.of(context).size.width,
-    height: 200,
+    height: 170,
     child: ListView(
       scrollDirection: Axis.horizontal,
       children: [
@@ -106,35 +106,56 @@ Widget thumbnailList(
           height: 50,
           width: MediaQuery.of(context).size.width / 3 - 15,
           decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage("assets/$pic1"), fit: BoxFit.cover),
-              border: Border.all(color: Colors.black, width: 1)
-              ),
+              image: DecorationImage(
+                  image: AssetImage("assets/$pic1"), fit: BoxFit.cover),
+              border: Border.all(color: Colors.black, width: 1)),
         ),
         Container(
           height: 200,
           width: MediaQuery.of(context).size.width / 3 - 15,
           decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage("assets/$pic2"), fit: BoxFit.cover),
-              border: Border.all(color: Colors.black, width: 1)
-            ),
+              image: DecorationImage(
+                  image: AssetImage("assets/$pic2"), fit: BoxFit.cover),
+              border: Border.all(color: Colors.black, width: 1)),
         ),
         Container(
           height: 200,
           width: MediaQuery.of(context).size.width / 3 - 15,
           decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage("assets/$pic3"), fit: BoxFit.cover),
-              border: Border.all(color: Colors.black, width: 1)
-              ),
+              image: DecorationImage(
+                  image: AssetImage("assets/$pic3"), fit: BoxFit.cover),
+              border: Border.all(color: Colors.black, width: 1)),
         ),
         Container(
           height: 200,
           width: MediaQuery.of(context).size.width / 3 - 15,
           decoration: BoxDecoration(
-              image: DecorationImage(image: AssetImage("assets/$pic4"), fit: BoxFit.cover),
-              border: Border.all(color: Colors.black, width: 1)
-              ),
+              image: DecorationImage(
+                  image: AssetImage("assets/$pic4"), fit: BoxFit.cover),
+              border: Border.all(color: Colors.black, width: 1)),
         ),
       ],
     ),
+  );
+}
+
+// this is for the tiles in comments page
+Widget commentTile(String label, IconData icon, Color color) {
+  return Column(
+    children: [
+      Container(
+        height: 50,
+        width: 50,        
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(3)
+        ),
+        child: Icon(icon, color: Colors.white,),
+      ),
+      SizedBox(
+        height: 10,
+      ),
+      Text("$label", style: TextStyle(fontFamily: "Quicksand"),)
+    ],
   );
 }
