@@ -9,6 +9,7 @@ class Account extends StatefulWidget {
 
 class _AccountState extends State<Account> {
   PageController accountPageController = new PageController();
+  int _accountPageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -201,16 +202,13 @@ class _AccountState extends State<Account> {
                     height: 1,
                     color: Colors.grey,
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       IconButton(
                         icon: Icon(
                           Icons.image,
-                          color: Colors.black,
+                           color: _accountPageIndex == 0 ? Colors.black : Colors.grey,                          
                         ),
                       ),
                       Container(
@@ -219,8 +217,9 @@ class _AccountState extends State<Account> {
                         color: Colors.grey,
                       ),
                       IconButton(
-                        icon: Image.asset(
-                          "assets/heart.jpg",
+                        icon: Icon(
+                          Icons.favorite_border,
+                           color: _accountPageIndex == 1 ? Colors.black : Colors.grey,                          
                         ),
                       ),
                     ],
@@ -230,24 +229,17 @@ class _AccountState extends State<Account> {
                     height: MediaQuery.of(context).size.height,
                     child: PageView(
                       controller: accountPageController,
+                      onPageChanged: (value) {
+                        setState(() {
+                          _accountPageIndex = value;
+                        });
+                      },
                       children: [
                         MyImages(),
-                        LikedImages(),                        
+                        LikedImages(),
                       ],
                     ),
                   )
-                  // Container(
-                  //   width: double.infinity,
-                  //   height: 100,
-                  //   color: Colors.green,
-                  // ),
-                  // SizedBox(height: 10,),
-                  // Container(
-                  //   width: double.infinity,
-                  //   height: 100,
-                  //   color: Colors.green,
-                  // ),
-                  // SizedBox(height: 10,)
                 ],
               ),
             )
