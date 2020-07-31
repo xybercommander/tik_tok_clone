@@ -210,6 +210,7 @@ class _AccountState extends State<Account> {
                           Icons.image,
                            color: _accountPageIndex == 0 ? Colors.black : Colors.grey,                          
                         ),
+                        onPressed: () {},
                       ),
                       Container(
                         height: 30,
@@ -221,6 +222,7 @@ class _AccountState extends State<Account> {
                           Icons.favorite_border,
                            color: _accountPageIndex == 1 ? Colors.black : Colors.grey,                          
                         ),
+                        onPressed: () {},
                       ),
                     ],
                   ),

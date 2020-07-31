@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      // extendBody: true,
       
       body: PageView(
         controller: pageController,
@@ -58,26 +58,33 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
 
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.home, color: Colors.black87,), title: Container(width: 2, height: 2)),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.search, color: Colors.black87), title: Container(width: 2, height: 2)),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.add, color: Colors.black87), title: Container(width: 2, height: 2)),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.comment, color: Colors.black87), title: Container(width: 2, height: 2)),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.face, color: Colors.black87), title: Container(width: 2, height: 2)),
-        ],
-        onTap: (value) {
-          setState(() {
-            _selectedIndex = value;
-            pageController.animateToPage(_selectedIndex, duration: Duration(milliseconds: 330), curve: Curves.linear);
-          });
-        },
-        currentIndex: _selectedIndex,        
+      bottomNavigationBar: Theme(
+        data: Theme.of(context).copyWith(
+          canvasColor: Colors.black,
+          primaryColor: Colors.black
+        ),
+        child: BottomNavigationBar(
+          fixedColor: Colors.black,
+          items: [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.home, color: Colors.white,), title: Container(width: 2, height: 2)),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.search, color: Colors.white), title: Container(width: 2, height: 2)),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.add, color: Colors.white), title: Container(width: 2, height: 2)),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.comment, color: Colors.white), title: Container(width: 2, height: 2)),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.face, color: Colors.white), title: Container(width: 2, height: 2)),
+          ],
+          onTap: (value) {
+            setState(() {
+              _selectedIndex = value;
+              pageController.animateToPage(_selectedIndex, duration: Duration(milliseconds: 330), curve: Curves.linear);
+            });
+          },
+          currentIndex: _selectedIndex,        
+        ),
       ),
     );
   }
