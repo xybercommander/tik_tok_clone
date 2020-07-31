@@ -39,16 +39,6 @@ class _MyHomePageState extends State<MyHomePage> {
   PageController pageController = new PageController();
   VideoPlayerController playerController;
 
-  File _video;
-
-  Future<void> _takeVideo() async {
-    final videofile = await ImagePicker.pickVideo(
-        source: ImageSource.camera, maxDuration: Duration(seconds: 10));
-    setState(() {
-      _video = videofile;
-    });
-  }
-
   int _selectedIndex = 0;
 
   List<Widget> pages = [Home(), Search(), AddVideo(), Comments(), Account()];
@@ -83,10 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.search, color: Colors.white), title: Container(width: 2, height: 2)),
             BottomNavigationBarItem(
-                icon: GestureDetector(
-                  onTap: _takeVideo,
-                  child: Icon(Icons.add, color: Colors.white)), title: Container(width: 2, height: 2)
-                ),
+                icon: Icon(Icons.add, color: Colors.white), title: Container(width: 2, height: 2)),
             BottomNavigationBarItem(
                 icon: Icon(Icons.comment, color: Colors.white), title: Container(width: 2, height: 2)),
             BottomNavigationBarItem(
