@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intern_demo/homePageViews/following.dart';
 import 'package:intern_demo/homePageViews/forYou.dart';
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 import 'package:intern_demo/views/account.dart';
 import 'package:intern_demo/views/add.dart';
 import 'package:intern_demo/views/comments.dart';
@@ -37,6 +39,16 @@ class _MyHomePageState extends State<MyHomePage> {
   PageController pageController = new PageController();
   VideoPlayerController playerController;
 
+  File _video;
+
+  Future<void> _takeVideo() async {
+    final videofile = await ImagePicker.pickVideo(
+        source: ImageSource.camera, maxDuration: Duration(seconds: 10));
+    setState(() {
+      _video = videofile;
+    });
+  }
+
   int _selectedIndex = 0;
 
   List<Widget> pages = [Home(), Search(), AddVideo(), Comments(), Account()];
@@ -71,7 +83,10 @@ class _MyHomePageState extends State<MyHomePage> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.search, color: Colors.white), title: Container(width: 2, height: 2)),
             BottomNavigationBarItem(
-                icon: Icon(Icons.add, color: Colors.white), title: Container(width: 2, height: 2)),
+                icon: GestureDetector(
+                  onTap: _takeVideo,
+                  child: Icon(Icons.add, color: Colors.white)), title: Container(width: 2, height: 2)
+                ),
             BottomNavigationBarItem(
                 icon: Icon(Icons.comment, color: Colors.white), title: Container(width: 2, height: 2)),
             BottomNavigationBarItem(

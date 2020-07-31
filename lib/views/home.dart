@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intern_demo/homePageViews/forYou.dart';
 import 'package:intern_demo/homePageViews/following.dart';
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -11,7 +13,7 @@ class _HomeState extends State<Home> {
   int _homePageIndex = 1;
   List<Widget> homePages = [Following(), ForYou()];
 
-  PageController homePageController = new PageController(initialPage: 1);
+  PageController homePageController = new PageController(initialPage: 1);  
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,9 @@ class _HomeState extends State<Home> {
                 onTap: () {
                   setState(() {
                     _homePageIndex = 0;
-                    homePageController.animateToPage(_homePageIndex, duration: Duration(milliseconds: 100), curve: Curves.linear);
+                    homePageController.animateToPage(_homePageIndex,
+                        duration: Duration(milliseconds: 100),
+                        curve: Curves.linear);
                   });
                 },
                 child: Text(
@@ -44,7 +48,9 @@ class _HomeState extends State<Home> {
                 onTap: () {
                   setState(() {
                     _homePageIndex = 1;
-                    homePageController.animateToPage(_homePageIndex, duration: Duration(milliseconds: 100), curve: Curves.linear);
+                    homePageController.animateToPage(_homePageIndex,
+                        duration: Duration(milliseconds: 100),
+                        curve: Curves.linear);
                   });
                 },
                 child: Text(
@@ -73,7 +79,7 @@ class _HomeState extends State<Home> {
             onPageChanged: (value) {
               setState(() {
                 _homePageIndex = value;
-              });
+              });              
             },
             children: homePages,
           ),

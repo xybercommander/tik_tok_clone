@@ -20,11 +20,11 @@ class _MyImagesState extends State<MyImages> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 3),
-                child: accountThumnails(context, 61, "imgDemo.png"),
+                child: accountThumnails(context, 61, "kakashi.jpg"),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 3),
-                child: accountThumnails(context, 50, "imgDemo.png"),
+                child: accountThumnails(context, 50, "itachi.jpg"),
               ),
             ],
           ),
@@ -33,7 +33,7 @@ class _MyImagesState extends State<MyImages> {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 3),
-                child: accountThumnails(context, 19, "imgDemo.png"),
+                child: accountThumnails(context, 19, "kamado.jpg"),
               ),
             ],
           ),

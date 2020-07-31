@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:intern_demo/videoPages/itachipage.dart';
 import 'package:intern_demo/videoPages/page1.dart';
 import 'package:intern_demo/videoPages/page2.dart';
 import 'package:intern_demo/videoPages/page3.dart';
+import 'package:intern_demo/videoPages/tanjiropage.dart';
 
 class Following extends StatefulWidget {
   @override
@@ -10,7 +12,7 @@ class Following extends StatefulWidget {
 
 class _FollowingState extends State<Following> {
 
-  List<Widget> videos = [VideoPage1(), VideoPage2(), VideoPage3()];
+  List<Widget> videos = [TanjiroPage(), VideoPage2(), ItachiPage()];
   PageController videoPageController = new PageController(initialPage: 0);
 
   @override

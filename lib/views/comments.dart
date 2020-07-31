@@ -36,7 +36,15 @@ class _CommentsState extends State<Comments> {
                 commentTile("Comment", Icons.comment, Colors.deepPurple),
               ],
             ),
-          )
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: Center(child: Image.asset("assets/waiting.jpg"),),
+          ),
+          SizedBox(height: 10,),
+          Text("No messages yet", style: TextStyle(color: Colors.black, fontFamily: "Quicksand", fontSize: 20),),
+          SizedBox(height: 10,),
+          Text("Start a new chat with your friends now", style: TextStyle(fontFamily: "Quicksand", color: Colors.grey[600]),)
         ],
       ),
     );

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:intern_demo/videoPages/kakashipage.dart';
+import 'package:intern_demo/videoPages/minatopage.dart';
 import 'package:intern_demo/videoPages/page1.dart';
 import 'package:intern_demo/videoPages/page2.dart';
 import 'package:intern_demo/videoPages/page3.dart';
@@ -9,7 +11,7 @@ class ForYou extends StatefulWidget {
 }
 
 class _ForYouState extends State<ForYou> {
-  List<Widget> videos = [VideoPage1(), VideoPage2(), VideoPage3()];
+  List<Widget> videos = [MinatoPage(), VideoPage2(), KakashiPage()];
   PageController videoPageController = new PageController(initialPage: 0);
 
   @override
