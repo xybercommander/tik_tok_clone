@@ -239,3 +239,32 @@ Widget addButton() {
     ),
   );
 }
+
+textFieldInputDecoration(String hintText) {
+ return InputDecoration(
+    labelText: "$hintText",
+    labelStyle: TextStyle(fontSize: 15, color: Colors.blueAccent, fontFamily: "Quicksand"),
+    focusedBorder: UnderlineInputBorder(
+      borderSide: BorderSide(color: Colors.blue)
+    ),
+    enabledBorder: UnderlineInputBorder(
+      borderSide: BorderSide(color: Colors.blue)
+    )
+ );
+}
+
+/* Text Field style (Color only) */
+
+TextStyle simpleStyle() {
+  return TextStyle(
+    color: Colors.white,    
+  );
+}
+
+/* Medium Text Styler */
+TextStyle mediumStyle(Color customColor) {
+  return TextStyle(
+    color: customColor,
+    fontSize: 17    
+  );
+}

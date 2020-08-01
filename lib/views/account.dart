@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intern_demo/accountPageViews/likedImages.dart';
 import 'package:intern_demo/accountPageViews/myImages.dart';
+import 'package:intern_demo/helper/constants.dart';
+import 'package:intern_demo/helper/helperfunctions.dart';
+import 'package:intern_demo/services/auth.dart';
+import 'package:intern_demo/helper/authenticate.dart';
 
 class Account extends StatefulWidget {
   @override
@@ -11,13 +15,15 @@ class _AccountState extends State<Account> {
   PageController accountPageController = new PageController();
   int _accountPageIndex = 0;
 
+  AuthMethods authMethods = new AuthMethods();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Text(
-          "Samrat Mukherjee",
+          "@${Constants.userName}",
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
@@ -34,12 +40,20 @@ class _AccountState extends State<Account> {
                     color: Colors.black,
                   ),
                   onPressed: null),
-              IconButton(
-                  icon: Icon(
-                    Icons.more_horiz,
-                    color: Colors.black,
-                  ),
-                  onPressed: null)
+              GestureDetector(
+                onTap: () {
+                  authMethods.signOut();
+                  HelperFunctions.saveUserLoggedInSharedPreference(false);
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => Authenticate()));
+                },
+                child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    child: Icon(
+                      Icons.exit_to_app,
+                      color: Colors.black,
+                    )),
+              )
             ],
           )
         ],
@@ -63,7 +77,7 @@ class _AccountState extends State<Account> {
                     height: 10,
                   ),
                   Text(
-                    "@xybercommander",
+                    "@${Constants.userName}",
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
@@ -208,7 +222,9 @@ class _AccountState extends State<Account> {
                       IconButton(
                         icon: Icon(
                           Icons.image,
-                           color: _accountPageIndex == 0 ? Colors.black : Colors.grey,                          
+                          color: _accountPageIndex == 0
+                              ? Colors.black
+                              : Colors.grey,
                         ),
                         onPressed: () {},
                       ),
@@ -220,7 +236,9 @@ class _AccountState extends State<Account> {
                       IconButton(
                         icon: Icon(
                           Icons.favorite_border,
-                           color: _accountPageIndex == 1 ? Colors.black : Colors.grey,                          
+                          color: _accountPageIndex == 1
+                              ? Colors.black
+                              : Colors.grey,
                         ),
                         onPressed: () {},
                       ),
