@@ -276,9 +276,19 @@ Widget listInShare(context) {
     child: ListView(
       scrollDirection: Axis.horizontal,
       children: [
-        Container(height: 50, width: 100,color: Colors.green,),
+        Container(
+          height: 50, width: 100,color: Colors.green,
+          child: Center(
+            child: Image.asset("assets/facebook.png"),
+          ),
+        ),
         SizedBox(width: 10,),
-        Container(height: 50, width: 100,color: Colors.green,),
+        Container(
+          height: 50, width: 100,color: Colors.green,
+          child: Center(
+            child: Image.asset("assets/instagram.png"),
+          ),
+        ),
         SizedBox(width: 10,),
         Container(height: 50, width: 100,color: Colors.green,),
         SizedBox(width: 10,),
