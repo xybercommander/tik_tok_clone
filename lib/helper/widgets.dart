@@ -293,28 +293,28 @@ Widget listInShare(context) {
         Container(
           height: 50, width: 100,color: Colors.green,
           child: Center(
-            child: Image.asset("assets/messenger.jpg"),
+            child: Image.asset("assets/fbmessenger.png"),
           ),
         ),
         SizedBox(width: 10,),
         Container(
           height: 50, width: 100,color: Colors.green,
           child: Center(
-            child: Image.asset("assets/insta.png"),
+            child: Image.asset("assets/whatsapp.png"),
           ),
         ),
         SizedBox(width: 10,),
         Container(
           height: 50, width: 100,color: Colors.green,
           child: Center(
-            child: Image.asset("assets/insta.png"),
+            child: Image.asset("assets/twitter.png"),
           ),
         ),
         SizedBox(width: 10,),
         Container(
           height: 50, width: 100,color: Colors.green,
           child: Center(
-            child: Image.asset("assets/insta.png"),
+            child: Image.asset("assets/message.jpg"),
           ),
         ),
         SizedBox(width: 10,),
