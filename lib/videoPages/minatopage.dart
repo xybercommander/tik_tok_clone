@@ -73,7 +73,7 @@ class _MinatoPageState extends State<MinatoPage> {
                 padding: EdgeInsets.all(16),
                 height: MediaQuery.of(context).size.height,
                 width: 100,
-                color: Colors.black.withOpacity(0.0),                
+                color: Colors.black.withOpacity(0.0),
                 alignment: Alignment.centerRight,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -90,30 +90,61 @@ class _MinatoPageState extends State<MinatoPage> {
                       height: 5,
                     ),
                     IconButton(
-                        icon: Icon(like == false
-                            ? Icons.favorite_border
-                            : Icons.favorite, color: Colors.white, size: 30,),
+                        icon: Icon(
+                          like == false
+                              ? Icons.favorite_border
+                              : Icons.favorite,
+                          color: Colors.white,
+                          size: 30,
+                        ),
                         onPressed: () {
                           setState(() {
                             like = !like;
                           });
                         }),
-                    Text("336.4k", style: TextStyle(color: Colors.white, fontSize: 12),),
+                    Text(
+                      "336.4k",
+                      style: TextStyle(color: Colors.white, fontSize: 12),
+                    ),
                     SizedBox(
                       height: 5,
                     ),
                     IconButton(
-                      icon: Icon(Icons.add_comment, color: Colors.white, size: 30,)
+                        icon: Icon(
+                      Icons.add_comment,
+                      color: Colors.white,
+                      size: 30,
+                    )),
+                    Text(
+                      "1539",
+                      style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
-                    Text("1539", style: TextStyle(color: Colors.white, fontSize: 12),),
                     SizedBox(
                       height: 5,
                     ),
                     IconButton(
-                      icon: Icon(Icons.share, color: Colors.white, size: 30,)
+                      icon: Icon(
+                        Icons.share,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                      onPressed: () {
+                        showModalBottomSheet(
+                            context: context,
+                            builder: (_) {
+                              return Center(
+                                child: Text("Share"),
+                              );
+                            });
+                      },
                     ),
-                    Text("Share", style: TextStyle(color: Colors.white, fontSize: 12),),
-                    SizedBox(height: MediaQuery.of(context).size.height / 6,)
+                    Text(
+                      "Share",
+                      style: TextStyle(color: Colors.white, fontSize: 12),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height / 6,
+                    )
                   ],
                 ),
               ),
@@ -126,32 +157,50 @@ class _MinatoPageState extends State<MinatoPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                      "@xybercommander",
-                      style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-                    ),
-                SizedBox(height: 17,),
+                  "@xybercommander",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
+                ),
+                SizedBox(
+                  height: 17,
+                ),
                 Text(
-                      "This is the title here, This is Minato's video",
-                      style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white, fontSize: 14, fontFamily: "Quicksand"),
-                    ),
-                SizedBox(height: 5,),
+                  "This is the title here, This is Minato's video",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontFamily: "Quicksand"),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
                 Row(
                   children: [
                     Text(
                       "This is the song",
-                      style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white, fontSize: 14, fontFamily: "Quicksand"),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontFamily: "Quicksand"),
                     ),
-                    SizedBox(width: 20,),
+                    SizedBox(
+                      width: 20,
+                    ),
                     Text(
                       "@artistName",
-                      style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white, fontSize: 11, fontFamily: "Quicksand"),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                          fontSize: 11,
+                          fontFamily: "Quicksand"),
                     ),
                     Spacer(),
                     Container(
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black, width: 10),
-                        borderRadius: BorderRadius.circular(40)
-                      ),
+                          border: Border.all(color: Colors.black, width: 10),
+                          borderRadius: BorderRadius.circular(40)),
                       height: 66,
                       width: 66,
                       child: CircleAvatar(
@@ -160,7 +209,7 @@ class _MinatoPageState extends State<MinatoPage> {
                     ),
                   ],
                 )
-              ],            
+              ],
             ),
           )
         ],

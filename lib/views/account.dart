@@ -17,6 +17,18 @@ class _AccountState extends State<Account> {
 
   AuthMethods authMethods = new AuthMethods();
 
+  getProfilePic() async {
+    String imageurl = await HelperFunctions.getUserImageUrlPreference();
+    setState(() {
+      Constants.imageUrl = imageurl;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,12 +79,18 @@ class _AccountState extends State<Account> {
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
               child: Column(
                 children: [
-                  Container(
-                      width: 80,
-                      height: 80,
-                      child: CircleAvatar(
-                        backgroundImage: AssetImage("assets/profilepic.jpg"),
-                      )),
+                  GestureDetector(
+                    onTap: () {
+                      print(Constants.profilePic.toString());
+                    },
+                    child: Container(
+                        width: 80,
+                        height: 80,
+                        child: CircleAvatar(
+                            backgroundImage: Constants.imageUrl == ""
+                                ? AssetImage("assets/Profile1.png")
+                                : NetworkImage("${Constants.imageUrl}"))),
+                  ),
                   SizedBox(
                     height: 10,
                   ),

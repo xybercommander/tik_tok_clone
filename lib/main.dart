@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intern_demo/SignPages/signIn.dart';
 import 'package:intern_demo/helper/authenticate.dart';
+import 'package:intern_demo/helper/constants.dart';
 import 'package:intern_demo/views/mainPage.dart';
 import 'package:intern_demo/helper/helperfunctions.dart';
 
@@ -16,12 +17,12 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-  bool userIsLoggedIn = false;
+  bool userIsLoggedIn = true;
 
   @override
   void initState() {
     getLoggedInState();
+    getUserProfilePic();
     super.initState();
   }
 
@@ -29,10 +30,18 @@ class _MyAppState extends State<MyApp> {
     await HelperFunctions.getUserLoggedInSharedPreference().then((value) {
       setState(() {
         userIsLoggedIn = value;
-        if(userIsLoggedIn == null) {
+        if (userIsLoggedIn == null) {
           userIsLoggedIn = false;
         }
         print(userIsLoggedIn);
+      });
+    });
+  }
+
+  getUserProfilePic() async {
+    await HelperFunctions.getUserImageUrlPreference().then((value) {
+      setState(() {
+        Constants.imageUrl = value;
       });
     });
   }
@@ -46,7 +55,6 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        
       ),
       home: userIsLoggedIn ? MainPage() : Authenticate(),
     );

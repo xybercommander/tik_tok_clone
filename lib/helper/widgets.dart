@@ -268,3 +268,4 @@ TextStyle mediumStyle(Color customColor) {
     fontSize: 17    
   );
 }
+

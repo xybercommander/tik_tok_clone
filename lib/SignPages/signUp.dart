@@ -1,3 +1,5 @@
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/services.dart';
 import 'package:intern_demo/helper/constants.dart';
 import 'package:intern_demo/helper/helperfunctions.dart';
 import 'package:intern_demo/services/database.dart';
@@ -8,6 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intern_demo/views/mainPage.dart';
 import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 
 class SignUp extends StatefulWidget {
   final Function toggle;
@@ -20,7 +23,8 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   bool isLoading = false;
   bool showPassword = false;
-  File _profilePic;
+
+  FirebaseStorage storage;
 
   AuthMethods authMethods = new AuthMethods();
   DatabaseMethods databaseMethods = new DatabaseMethods();
@@ -33,22 +37,33 @@ class _SignUpState extends State<SignUp> {
   TextEditingController passwordTextEditingController =
       new TextEditingController();
 
-
-
   // Sign up Method
-  signMeUp() {
+  signMeUp() async {
     // method call for sending data to the firestore database
 
     if (formKey.currentState.validate()) {
+      final file = _profile;
+      final StorageTaskSnapshot snapshot = await FirebaseStorage()
+          .ref()
+          .child("images/${userNameTextEditingController.text}")
+          .putFile(file)
+          .onComplete;
+      final String downloadURL = await snapshot.ref.getDownloadURL();
+
       Map<String, dynamic> userInfoMap = {
         "name": userNameTextEditingController.text,
         "email": emailTextEditingController.text,
+        "imageUrl": downloadURL
       };
+
       HelperFunctions.saveUserEmailSharedPreference(
           emailTextEditingController.text);
       HelperFunctions.saveUserNameSharedPreference(
           userNameTextEditingController.text);
       Constants.userName = userNameTextEditingController.text;
+      Constants.profilePic = file;
+      Constants.imageUrl = downloadURL;
+      HelperFunctions.saveUserImageUrl(downloadURL);
 
       authMethods
           .signUpWithEmailAndPassword(emailTextEditingController.text,
@@ -70,6 +85,17 @@ class _SignUpState extends State<SignUp> {
     ;
   }
 
+  File _profile;
+
+  Future<void> _getImage() async {
+    final profile = await ImagePicker.pickImage(
+        source: ImageSource.gallery, maxWidth: 100, maxHeight: 100);
+    setState(() {
+      _profile = profile;
+      Constants.profilePic = _profile;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -87,17 +113,54 @@ class _SignUpState extends State<SignUp> {
             )
           : SingleChildScrollView(
               child: Container(
+                color: Colors.white,
                 height: MediaQuery.of(context).size.height - 100,
                 alignment: Alignment.bottomCenter,
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 24),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Form(
                         key: formKey,
                         child: Column(
                           children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Container(
+                                  height: 100,
+                                  width: 100,
+                                  child: Center(
+                                      child: _profile == null
+                                          ? Image.asset("assets/Profile1.png")
+                                          : Container(
+                                              // child: CircleAvatar(child: Image.file(_profile),),
+                                              child: CircleAvatar(
+                                                backgroundImage:
+                                                    FileImage(_profile),
+                                              ),
+                                              height: 100,
+                                              width: 100,
+                                            )),
+                                ),
+                                FlatButton.icon(
+                                    splashColor: Colors.blue,
+                                    onPressed: _getImage,
+                                    icon: Icon(
+                                      Icons.add,
+                                      color: Colors.blueGrey,
+                                    ),
+                                    label: Text(
+                                      "Add your Profile pic",
+                                      style: TextStyle(color: Colors.blueGrey),
+                                    ))
+                              ],
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
                             TextFormField(
                                 validator: (username) {
                                   return username.isEmpty || username.length < 4
@@ -177,41 +240,23 @@ class _SignUpState extends State<SignUp> {
                       SizedBox(
                         height: 16,
                       ),
-                      GestureDetector(
-                        onTap: () {
+                      MaterialButton(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30)),
+                        color: Colors.blue,
+                        height: 50,
+                        onPressed: () {
                           signMeUp();
                         },
-                        child: Container(
-                          alignment: Alignment.center,
-                          width: MediaQuery.of(context).size.width,
-                          padding: EdgeInsets.symmetric(vertical: 20),
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(colors: [
-                                Color(0xff007EF4),
-                                Color(0xff2A75BC)
-                              ]),
-                              borderRadius: BorderRadius.circular(30)),
-                          child: Text(
-                            "Sign Up",
-                            style: mediumStyle(Colors.white),
-                          ),
+                        // color: Colors.blue,
+                        child: Text(
+                          "Sign Up",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "Quicksand",
+                              fontSize: 20),
                         ),
                       ),
-                      SizedBox(
-                        height: 16,
-                      ),
-                      Container(
-                          alignment: Alignment.center,
-                          width: MediaQuery.of(context).size.width,
-                          padding: EdgeInsets.symmetric(vertical: 20),
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                  colors: [Colors.red, Colors.redAccent]),
-                              borderRadius: BorderRadius.circular(30)),
-                          child: Text(
-                            "Sign Up with Google",
-                            style: mediumStyle(Colors.white),
-                          )),
                       SizedBox(
                         height: 16,
                       ),
