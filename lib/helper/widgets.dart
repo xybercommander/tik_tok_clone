@@ -12,20 +12,23 @@ Widget accountThumnails(context, int likes, String pic) {
     child: Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Row(
-          children: [
-            Icon(
-              Icons.play_circle_outline,
-              color: Colors.white,
-            ),
-            SizedBox(
-              width: 5,
-            ),
-            Text(
-              "$likes",
-              style: TextStyle(color: Colors.white),
-            )
-          ],
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 4.0),
+          child: Row(
+            children: [
+              Icon(
+                Icons.play_circle_outline,
+                color: Colors.white,
+              ),
+              SizedBox(
+                width: 5,
+              ),
+              Text(
+                "$likes",
+                style: TextStyle(color: Colors.white),
+              )
+            ],
+          ),
         ),
         SizedBox(
           height: 5,
@@ -95,44 +98,76 @@ Widget trendingTag(String hashtag, String likes) {
 
 // this is for the list in the search page
 Widget thumbnailList(
-    context, String pic1, String pic2, String pic3, String pic4) {
+    context,
+    String pic1,
+    String pic2,
+    String pic3,
+    String pic4,
+    Widget widget1,
+    Widget widget2,
+    Widget widget3,
+    Widget widget4) {
   return Container(
     width: MediaQuery.of(context).size.width,
     height: 170,
     child: ListView(
       scrollDirection: Axis.horizontal,
       children: [
-        Container(
-          height: 50,
-          width: MediaQuery.of(context).size.width / 3 - 15,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/$pic1"), fit: BoxFit.cover),
-              border: Border.all(color: Colors.black, width: 1)),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => widget1));
+          },
+          child: Container(
+            height: 50,
+            width: MediaQuery.of(context).size.width / 3 - 15,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/$pic1"), fit: BoxFit.cover),
+                border: Border.all(color: Colors.black, width: 1)),
+          ),
         ),
-        Container(
-          height: 200,
-          width: MediaQuery.of(context).size.width / 3 - 15,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/$pic2"), fit: BoxFit.cover),
-              border: Border.all(color: Colors.black, width: 1)),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => widget2));
+          },
+          child: Container(
+            height: 50,
+            width: MediaQuery.of(context).size.width / 3 - 15,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/$pic2"), fit: BoxFit.cover),
+                border: Border.all(color: Colors.black, width: 1)),
+          ),
         ),
-        Container(
-          height: 200,
-          width: MediaQuery.of(context).size.width / 3 - 15,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/$pic3"), fit: BoxFit.cover),
-              border: Border.all(color: Colors.black, width: 1)),
+       GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => widget3));
+          },
+          child: Container(
+            height: 50,
+            width: MediaQuery.of(context).size.width / 3 - 15,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/$pic3"), fit: BoxFit.cover),
+                border: Border.all(color: Colors.black, width: 1)),
+          ),
         ),
-        Container(
-          height: 200,
-          width: MediaQuery.of(context).size.width / 3 - 15,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/$pic4"), fit: BoxFit.cover),
-              border: Border.all(color: Colors.black, width: 1)),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => widget4));
+          },
+          child: Container(
+            height: 50,
+            width: MediaQuery.of(context).size.width / 3 - 15,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage("assets/$pic4"), fit: BoxFit.cover),
+                border: Border.all(color: Colors.black, width: 1)),
+          ),
         ),
       ],
     ),
@@ -145,17 +180,62 @@ Widget commentTile(String label, IconData icon, Color color) {
     children: [
       Container(
         height: 50,
-        width: 50,        
-        decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.circular(3)
+        width: 50,
+        decoration:
+            BoxDecoration(color: color, borderRadius: BorderRadius.circular(3)),
+        child: Icon(
+          icon,
+          color: Colors.white,
         ),
-        child: Icon(icon, color: Colors.white,),
       ),
       SizedBox(
         height: 10,
       ),
-      Text("$label", style: TextStyle(fontFamily: "Quicksand"),)
+      Text(
+        "$label",
+        style: TextStyle(fontFamily: "Quicksand"),
+      )
     ],
+  );
+}
+
+// this is for the add button in bottom navigation bar
+Widget addButton() {
+  return Container(
+    width: 45,
+    height: 27,
+    child: Stack(
+      children: [
+        Container(
+          margin: EdgeInsets.only(left: 10),
+          width: 38,
+          decoration: BoxDecoration(
+              color: Color.fromARGB(255, 250, 45, 108),
+              borderRadius: BorderRadius.circular(7)),
+        ),
+        Container(
+          margin: EdgeInsets.only(right: 10),
+          width: 38,
+          decoration: BoxDecoration(
+              color: Color.fromARGB(255, 32, 211, 234),
+              borderRadius: BorderRadius.circular(7)),
+        ),
+        Center(
+          child: Container(
+            height: double.infinity,
+            width: 38,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(7),
+            ),
+            child: Icon(
+              Icons.add,
+              color: Colors.black,
+              size: 20,
+            ),
+          ),
+        )
+      ],
+    ),
   );
 }

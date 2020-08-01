@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intern_demo/helper/widgets.dart';
+import 'package:intern_demo/videoPages/itachipage.dart';
+import 'package:intern_demo/videoPages/kakashipage.dart';
+import 'package:intern_demo/videoPages/minatopage.dart';
+import 'package:intern_demo/videoPages/tanjiropage.dart';
 
 class Search extends StatefulWidget {
   @override
@@ -23,11 +27,11 @@ class _SearchState extends State<Search> {
                   ),
                 ),
                 trendingTag("welcome2020_india", "400k"),
-                thumbnailList(context, "itachi.jpg", "kakashi.jpg", "minato.jpg", "kamado.jpg"),
+                thumbnailList(context, "itachi.jpg", "kakashi.jpg", "minato.jpg", "kamado.jpg", ItachiPage(), KakashiPage(), MinatoPage(), TanjiroPage()),
                 trendingTag("transitionbattle_in2", "220k"),
-                thumbnailList(context, "kamado.jpg", "minato.jpg", "kakashi.jpg", "itachi.jpg"),
+                thumbnailList(context, "kamado.jpg", "minato.jpg", "kakashi.jpg", "itachi.jpg", TanjiroPage(), MinatoPage(), KakashiPage(), ItachiPage()),
                 trendingTag("facialexpression_battle", "127K"),
-                thumbnailList(context, "kakashi.jpg", "itachi.jpg", "minato.jpg", "kamado.jpg"),
+                thumbnailList(context, "kakashi.jpg", "itachi.jpg", "minato.jpg", "kamado.jpg", KakashiPage(), ItachiPage(), MinatoPage(), TanjiroPage()),
               ],
             ),
             SafeArea(

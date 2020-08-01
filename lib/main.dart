@@ -9,6 +9,8 @@ import 'package:intern_demo/views/comments.dart';
 import 'package:intern_demo/views/home.dart';
 import 'package:intern_demo/views/search.dart';
 import 'package:video_player/video_player.dart';
+import 'package:intern_demo/helper/widgets.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,26 +20,28 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        
       ),
       home: MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatefulWidget {  
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
   PageController pageController = new PageController();
-  VideoPlayerController playerController;
+  VideoPlayerController playerController;  
 
   int _selectedIndex = 0;
 
@@ -73,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.search, color: Colors.white), title: Container(width: 2, height: 2)),
             BottomNavigationBarItem(
-                icon: Icon(Icons.add, color: Colors.white), title: Container(width: 2, height: 2)),
+                icon: addButton(), title: Container(width: 2, height: 2)),
             BottomNavigationBarItem(
                 icon: Icon(Icons.comment, color: Colors.white), title: Container(width: 2, height: 2)),
             BottomNavigationBarItem(
