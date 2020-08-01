@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'package:intern_demo/helper/widgets.dart';
 
 class KakashiPage extends StatefulWidget {
   @override
@@ -110,7 +111,38 @@ class _KakashiPageState extends State<KakashiPage> {
                       height: 5,
                     ),
                     IconButton(
-                      icon: Icon(Icons.share, color: Colors.white, size: 30,)
+                      icon: Icon(Icons.share, color: Colors.white, size: 30,),
+                      onPressed: () {
+                        showModalBottomSheet(
+                            context: context,
+                            builder: (_) {
+                              return Container(
+                                height: MediaQuery.of(context).size.height / 3 - 30,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text("Share to",
+                                        style: TextStyle(
+                                          color: Colors.grey[600],
+                                        )),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    listInShare(context),                                    
+                                    FlatButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();                                        
+                                      },
+                                      child: Text("Cancel"),
+                                    )
+                                  ],
+                                ),
+                              );
+                            });
+                      },
                     ),
                     Text("Share", style: TextStyle(color: Colors.white, fontSize: 12),),
                     SizedBox(height: MediaQuery.of(context).size.height / 6,)

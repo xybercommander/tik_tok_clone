@@ -133,14 +133,30 @@ class _MinatoPageState extends State<MinatoPage> {
                         showModalBottomSheet(
                             context: context,
                             builder: (_) {
-                              return Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  SizedBox(height: 10,),
-                                  Text("Share to", style: TextStyle(color: Colors.grey[600],)),
-                                  SizedBox(height: 20,),
-                                  listInShare(context)
-                                ],
+                              return Container(
+                                height: MediaQuery.of(context).size.height / 3 - 30,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text("Share to",
+                                        style: TextStyle(
+                                          color: Colors.grey[600],
+                                        )),
+                                    SizedBox(
+                                      height: 20,
+                                    ),
+                                    listInShare(context),                                    
+                                    FlatButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();                                        
+                                      },
+                                      child: Text("Cancel"),
+                                    )
+                                  ],
+                                ),
                               );
                             });
                       },

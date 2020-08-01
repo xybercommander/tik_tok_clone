@@ -269,6 +269,7 @@ TextStyle mediumStyle(Color customColor) {
   );
 }
 
+// this is for the share button in video page
 Widget listInShare(context) {
   return Container(
     height: 100,
@@ -276,46 +277,78 @@ Widget listInShare(context) {
     child: ListView(
       scrollDirection: Axis.horizontal,
       children: [
-        Container(
-          height: 50, width: 100,color: Colors.green,
-          child: Center(
-            child: Image.asset("assets/facebook.png"),
-          ),
+        SizedBox(width: 20,),
+        Column(
+          children: [
+            Container(
+              height: 50, width: 100,
+              child: Center(
+                child: Image.asset("assets/facebook.png"),
+              ),
+            ),
+            SizedBox(height: 10,),
+            Text("Facebook", style: TextStyle(color: Colors.grey, fontSize: 13),)
+          ],
         ),
-        SizedBox(width: 10,),
-        Container(
-          height: 50, width: 100,color: Colors.green,
-          child: Center(
-            child: Image.asset("assets/insta.png"),
-          ),
+        Column(
+          children: [
+            Container(
+              height: 50, width: 100,
+              child: Center(
+                child: Image.asset("assets/insta.png"),
+              ),
+            ),
+            SizedBox(height: 10,),
+            Text("Instagram", style: TextStyle(color: Colors.grey, fontSize: 13),)
+          ],
         ),
-        SizedBox(width: 10,),
-        Container(
-          height: 50, width: 100,color: Colors.green,
-          child: Center(
-            child: Image.asset("assets/fbmessenger.png"),
-          ),
-        ),
-        SizedBox(width: 10,),
-        Container(
-          height: 50, width: 100,color: Colors.green,
-          child: Center(
-            child: Image.asset("assets/whatsapp.png"),
-          ),
-        ),
-        SizedBox(width: 10,),
-        Container(
-          height: 50, width: 100,color: Colors.green,
-          child: Center(
-            child: Image.asset("assets/twitter.png"),
-          ),
-        ),
-        SizedBox(width: 10,),
-        Container(
-          height: 50, width: 100,color: Colors.green,
-          child: Center(
-            child: Image.asset("assets/message.jpg"),
-          ),
+        Column(
+          children: [
+            Container(
+              height: 50, width: 100,
+              child: Center(
+                child: Image.asset("assets/fbmessenger.png"),
+              ),
+            ),
+            SizedBox(height: 10,),
+            Text("Messenger", style: TextStyle(color: Colors.grey, fontSize: 13),)
+          ],
+        ),        
+        Column(
+          children: [
+            Container(
+              height: 50, width: 100,
+              child: Center(
+                child: Image.asset("assets/whatsapp.png"),
+              ),
+            ),
+            SizedBox(height: 10,),
+            Text("Whatsapp", style: TextStyle(color: Colors.grey, fontSize: 13),)
+          ],
+        ),        
+        Column(
+          children: [
+            Container(
+              height: 50, width: 100,
+              child: Center(
+                child: Image.asset("assets/msg.png"),
+              ),
+            ),
+            SizedBox(height: 10,),
+            Text("Message", style: TextStyle(color: Colors.grey, fontSize: 13),)
+          ],
+        ),        
+        Column(
+          children: [
+            Container(
+              height: 50, width: 100,
+              child: Center(
+                child: Image.asset("assets/twitter.png"),
+              ),
+            ),
+            SizedBox(height: 10,),
+            Text("Tweet", style: TextStyle(color: Colors.grey, fontSize: 13),)
+          ],
         ),
         SizedBox(width: 10,),
       ],
