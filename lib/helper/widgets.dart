@@ -286,17 +286,37 @@ Widget listInShare(context) {
         Container(
           height: 50, width: 100,color: Colors.green,
           child: Center(
-            child: Image.asset("assets/instagram.png"),
+            child: Image.asset("assets/insta.png"),
           ),
         ),
         SizedBox(width: 10,),
-        Container(height: 50, width: 100,color: Colors.green,),
+        Container(
+          height: 50, width: 100,color: Colors.green,
+          child: Center(
+            child: Image.asset("assets/messenger.jpg"),
+          ),
+        ),
         SizedBox(width: 10,),
-        Container(height: 50, width: 100,color: Colors.green,),
+        Container(
+          height: 50, width: 100,color: Colors.green,
+          child: Center(
+            child: Image.asset("assets/insta.png"),
+          ),
+        ),
         SizedBox(width: 10,),
-        Container(height: 50, width: 100,color: Colors.green,),
+        Container(
+          height: 50, width: 100,color: Colors.green,
+          child: Center(
+            child: Image.asset("assets/insta.png"),
+          ),
+        ),
         SizedBox(width: 10,),
-        Container(height: 50, width: 100,color: Colors.green,),
+        Container(
+          height: 50, width: 100,color: Colors.green,
+          child: Center(
+            child: Image.asset("assets/insta.png"),
+          ),
+        ),
         SizedBox(width: 10,),
       ],
     ),
