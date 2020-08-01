@@ -269,3 +269,26 @@ TextStyle mediumStyle(Color customColor) {
   );
 }
 
+Widget listInShare(context) {
+  return Container(
+    height: 100,
+    width: MediaQuery.of(context).size.width,    
+    child: ListView(
+      scrollDirection: Axis.horizontal,
+      children: [
+        Container(height: 50, width: 100,color: Colors.green,),
+        SizedBox(width: 10,),
+        Container(height: 50, width: 100,color: Colors.green,),
+        SizedBox(width: 10,),
+        Container(height: 50, width: 100,color: Colors.green,),
+        SizedBox(width: 10,),
+        Container(height: 50, width: 100,color: Colors.green,),
+        SizedBox(width: 10,),
+        Container(height: 50, width: 100,color: Colors.green,),
+        SizedBox(width: 10,),
+        Container(height: 50, width: 100,color: Colors.green,),
+        SizedBox(width: 10,),
+      ],
+    ),
+  );
+}

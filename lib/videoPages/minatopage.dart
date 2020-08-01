@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'package:intern_demo/helper/widgets.dart';
 
 class MinatoPage extends StatefulWidget {
   @override
@@ -132,8 +133,14 @@ class _MinatoPageState extends State<MinatoPage> {
                         showModalBottomSheet(
                             context: context,
                             builder: (_) {
-                              return Center(
-                                child: Text("Share"),
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(height: 10,),
+                                  Text("Share to", style: TextStyle(color: Colors.grey[600],)),
+                                  SizedBox(height: 20,),
+                                  listInShare(context)
+                                ],
                               );
                             });
                       },
