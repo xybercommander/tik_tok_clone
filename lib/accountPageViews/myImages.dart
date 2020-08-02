@@ -13,16 +13,16 @@ class _MyImagesState extends State<MyImages> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      children: [
-        Row(
+        body: GridView.count(
+          childAspectRatio: (MediaQuery.of(context).size.width / 3) / (MediaQuery.of(context).size.height / 4),
+          crossAxisCount: 3,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 3),
+              padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
               child: accountThumnails(context, 109, "imgDemo.png"),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 3),
+              padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
               child: GestureDetector(
                   onTap: () {
                     Navigator.push(context,
@@ -31,7 +31,7 @@ class _MyImagesState extends State<MyImages> {
                   child: accountThumnails(context, 61, "kakashi.jpg")),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 3),
+              padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
               child: GestureDetector(
                   onTap: () {
                     Navigator.push(context,
@@ -39,15 +39,8 @@ class _MyImagesState extends State<MyImages> {
                   },
                   child: accountThumnails(context, 61, "itachi.jpg")),
             ),
-          ],
-        ),
-        SizedBox(
-          height: 5,
-        ),
-        Row(
-          children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 3),
+              padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 3),
               child: GestureDetector(
                   onTap: () {
                     Navigator.push(context,
@@ -55,8 +48,6 @@ class _MyImagesState extends State<MyImages> {
                   },
                   child: accountThumnails(context, 61, "kamado.jpg")),
             ),
-          ],
-        ),
       ],
     ));
   }

@@ -16,7 +16,7 @@ class _MinatoPageState extends State<MinatoPage> {
   void initState() {
     // _controller = VideoPlayerController.network(
     //     "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4");
-    _controller = VideoPlayerController.asset("videos/Minato.mp4");
+    _controller = VideoPlayerController.network("https://modqrg.dm.files.1drv.com/y4mVZnU4U6Lrg2JNB2wCuaBhHFD1BIYDzpyqJ0wxG29VgPlXV_RZ3-EDMlboFYNtQ6C_a1aa_AiRlctc3GKkwH2Zz6oiv_OOH5S36346XtDRCLQ8tFIZXi5vp5wmIiHd4qLJAevqh8LcYtmUQ9ix-v38zcqE3oKmMnEFQlN5u1-dE5y3HUQtoW8_vYY_tul01DXUf8jf5fRAfC3XHZcID_0yNz54V8ycsJZ34SqbZV300Q/Minato.mp4?psid=1?");
     _intializeVideoPlayerFuture = _controller.initialize();
     _controller.setLooping(true);
     _controller.setVolume(1.0);
