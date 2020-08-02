@@ -16,7 +16,7 @@ class _KakashiPageState extends State<KakashiPage> {
   void initState() {
     // _controller = VideoPlayerController.network(
     //     "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4");
-    _controller = VideoPlayerController.network("https://modqrg.dm.files.1drv.com/y4miHRHFQZV2WgYW427bHb2aY1yhvtS5ZupLRJPeZBGs_UwQ0jBgi2YbtB6wG3cV7tkyvxh-yWTYgdNYU8zlb9E2p3Z6e_XlVy7HmUgBnm1WgiuUB6SIZH7kPjdfSIafWa3pcyegGEv2j-fokAOJCw5A0XLT56AuUZbBX3Y1NDn94O_mfZY5BGmKy1MQp5KcPMFZ2dV7ZHQ_-XvNEOXRiJq2IOrE8r9Eaf1NXJYpGQ-05U/kakashi.mp4?psid=1?");
+    _controller = VideoPlayerController.asset("videos/kakashi.mp4");
     _intializeVideoPlayerFuture = _controller.initialize();
     _controller.setLooping(true);
     _controller.setVolume(1.0);

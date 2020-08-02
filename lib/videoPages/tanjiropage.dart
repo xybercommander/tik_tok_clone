@@ -16,7 +16,7 @@ class _TanjiroPageState extends State<TanjiroPage> {
   void initState() {
     // _controller = VideoPlayerController.network(
     //     "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4");
-    _controller = VideoPlayerController.network("https://modqrg.dm.files.1drv.com/y4miKhK4gLa-m3Et5ZnEYXIVjZQV--FhlsyoN7XMsEzzbknlVklB5bOMioKHkYhx4P3_9OXT-ieTxeSiqxyLlbijLFOYRWEdu3GnNdoh6xJ701INfMtxtzthtg1MXuE30XS_MyrrJ4BpyJFHNrEFsa36R0HPf250vj_CL8yPrS-ItcEgnF7oiqZf7T3gu1LsXDD_lDS4GypmbGVUZ0M6uyLsNfB1vNjkVVLznciHUt66og/tanjiro.mp4?psid=1?");
+    _controller = VideoPlayerController.asset("videos/tanjiro.mp4");
     _intializeVideoPlayerFuture = _controller.initialize();
     _controller.setLooping(true);
     _controller.setVolume(1.0);

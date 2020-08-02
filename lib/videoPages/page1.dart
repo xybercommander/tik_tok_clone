@@ -16,7 +16,7 @@ class _VideoPage1State extends State<VideoPage1> {
   void initState() {
     // _controller = VideoPlayerController.network(
     //     "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4");
-    _controller = VideoPlayerController.network("videos/videosample1.mp4");
+    _controller = VideoPlayerController.asset("videos/videosample1.mp4");
     _intializeVideoPlayerFuture = _controller.initialize();
     _controller.setLooping(true);
     _controller.setVolume(1.0);

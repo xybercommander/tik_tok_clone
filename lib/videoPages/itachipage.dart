@@ -16,7 +16,7 @@ class _ItachiPageState extends State<ItachiPage> {
   void initState() {
     // _controller = VideoPlayerController.network(
     //     "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4");
-    _controller = VideoPlayerController.network("https://modqrg.dm.files.1drv.com/y4mjf9LyhiaVp-arNkUPGl4NQkmhQNuJ1lDJDo5vGt4ToUYLWYOvpuRH8eH2I9H2jYMr58t9gSNQXkXy3eykIwEqlPE_RnTeEJhBWZhBwvZaaXWZAQDzKKWapf3kMCZFLK3qWpxxaeWRJ8sqqEV27CYzDMttTx85tc3gtT9Ll9jipzmNdl0LYIPik33TaQxse0iS7e28qyhjZatnlb4E2KrHwkERVJmjEh0D4I4MHWx15A/itachi.mp4?psid=1?");
+    _controller = VideoPlayerController.asset("videos/itachi.mp4");
     _intializeVideoPlayerFuture = _controller.initialize();
     _controller.setLooping(true);
     _controller.setVolume(1.0);
