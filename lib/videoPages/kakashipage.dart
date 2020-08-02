@@ -74,7 +74,7 @@ class _KakashiPageState extends State<KakashiPage> {
                 padding: EdgeInsets.all(16),
                 height: MediaQuery.of(context).size.height,
                 width: 100,
-                color: Colors.black.withOpacity(0.0),                
+                color: Colors.black.withOpacity(0.0),
                 alignment: Alignment.centerRight,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -91,33 +91,93 @@ class _KakashiPageState extends State<KakashiPage> {
                       height: 5,
                     ),
                     IconButton(
-                        icon: Icon(like == false
-                            ? Icons.favorite_border
-                            : Icons.favorite, color: Colors.white, size: 30,),
+                        icon: Icon(
+                          like == false
+                              ? Icons.favorite_border
+                              : Icons.favorite,
+                          color: Colors.white,
+                          size: 30,
+                        ),
                         onPressed: () {
                           setState(() {
                             like = !like;
                           });
                         }),
-                    Text("336.4k", style: TextStyle(color: Colors.white, fontSize: 12),),
+                    Text(
+                      "336.4k",
+                      style: TextStyle(color: Colors.white, fontSize: 12),
+                    ),
                     SizedBox(
                       height: 5,
                     ),
                     IconButton(
-                      icon: Icon(Icons.add_comment, color: Colors.white, size: 30,)
+                      icon: Icon(
+                        Icons.add_comment,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                      onPressed: () {
+                        showModalBottomSheet(
+                            context: context,
+                            builder: (_) {
+                              return SingleChildScrollView(
+                                child: Container(
+                                  height: MediaQuery.of(context).size.height / 2,
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 5,
+                                      ),
+                                      Text("5 comments"),
+                                      SizedBox(
+                                        height: 5,
+                                      ),
+                                      Container(
+                                        width: MediaQuery.of(context).size.width,
+                                        height: MediaQuery.of(context).size.height / 2 - 30,
+                                        child: ListView(
+                                          scrollDirection: Axis.vertical,
+                                          children: [
+                                            commentBox(context, "@xyber", "Haha", "20"),
+                                            SizedBox(height: 5,),
+                                            commentBox(context, "@samrat", "Really cool", "30"),
+                                            SizedBox(height: 5,),
+                                            commentBox(context, "@cws", "Nice", "40"),
+                                            SizedBox(height: 5,),
+                                            commentBox(context, "@abc", "Lmao", "50"),
+                                            SizedBox(height: 5,),
+                                            commentBox(context, "@def", "Lol", "60"),
+                                            SizedBox(height: 5,),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              );
+                            });
+                      },
                     ),
-                    Text("1539", style: TextStyle(color: Colors.white, fontSize: 12),),
+                    Text(
+                      "5",
+                      style: TextStyle(color: Colors.white, fontSize: 12),
+                    ),
                     SizedBox(
                       height: 5,
                     ),
                     IconButton(
-                      icon: Icon(Icons.share, color: Colors.white, size: 30,),
+                      icon: Icon(
+                        Icons.share,
+                        color: Colors.white,
+                        size: 30,
+                      ),
                       onPressed: () {
                         showModalBottomSheet(
                             context: context,
                             builder: (_) {
                               return Container(
-                                height: MediaQuery.of(context).size.height / 3 - 30,
+                                height:
+                                    MediaQuery.of(context).size.height / 3 - 30,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
@@ -131,10 +191,10 @@ class _KakashiPageState extends State<KakashiPage> {
                                     SizedBox(
                                       height: 20,
                                     ),
-                                    listInShare(context),                                    
+                                    listInShare(context),
                                     FlatButton(
                                       onPressed: () {
-                                        Navigator.of(context).pop();                                        
+                                        Navigator.of(context).pop();
                                       },
                                       child: Text("Cancel"),
                                     )
@@ -144,8 +204,13 @@ class _KakashiPageState extends State<KakashiPage> {
                             });
                       },
                     ),
-                    Text("Share", style: TextStyle(color: Colors.white, fontSize: 12),),
-                    SizedBox(height: MediaQuery.of(context).size.height / 6,)
+                    Text(
+                      "Share",
+                      style: TextStyle(color: Colors.white, fontSize: 12),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height / 6,
+                    )
                   ],
                 ),
               ),
@@ -158,32 +223,50 @@ class _KakashiPageState extends State<KakashiPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                      "@xybercommander",
-                      style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-                    ),
-                SizedBox(height: 17,),
+                  "@xybercommander",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
+                ),
+                SizedBox(
+                  height: 17,
+                ),
                 Text(
-                      "This is the title here, This is Kakashi's video",
-                      style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white, fontSize: 14, fontFamily: "Quicksand"),
-                    ),
-                SizedBox(height: 5,),
+                  "This is the title here, This is Kakashi's video",
+                  style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontFamily: "Quicksand"),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
                 Row(
                   children: [
                     Text(
                       "This is the song",
-                      style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white, fontSize: 14, fontFamily: "Quicksand"),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontFamily: "Quicksand"),
                     ),
-                    SizedBox(width: 20,),
+                    SizedBox(
+                      width: 20,
+                    ),
                     Text(
                       "@artistName",
-                      style: TextStyle(fontWeight: FontWeight.w500, color: Colors.white, fontSize: 11, fontFamily: "Quicksand"),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                          fontSize: 11,
+                          fontFamily: "Quicksand"),
                     ),
                     Spacer(),
                     Container(
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black, width: 10),
-                        borderRadius: BorderRadius.circular(40)
-                      ),
+                          border: Border.all(color: Colors.black, width: 10),
+                          borderRadius: BorderRadius.circular(40)),
                       height: 66,
                       width: 66,
                       child: CircleAvatar(
@@ -192,7 +275,7 @@ class _KakashiPageState extends State<KakashiPage> {
                     ),
                   ],
                 )
-              ],            
+              ],
             ),
           )
         ],

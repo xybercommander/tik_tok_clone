@@ -141,7 +141,7 @@ Widget thumbnailList(
                 border: Border.all(color: Colors.black, width: 1)),
           ),
         ),
-       GestureDetector(
+        GestureDetector(
           onTap: () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => widget3));
@@ -241,116 +241,183 @@ Widget addButton() {
 }
 
 textFieldInputDecoration(String hintText) {
- return InputDecoration(
-    labelText: "$hintText",
-    labelStyle: TextStyle(fontSize: 15, color: Colors.blueAccent, fontFamily: "Quicksand"),
-    focusedBorder: UnderlineInputBorder(
-      borderSide: BorderSide(color: Colors.blue)
-    ),
-    enabledBorder: UnderlineInputBorder(
-      borderSide: BorderSide(color: Colors.blue)
-    )
- );
+  return InputDecoration(
+      labelText: "$hintText",
+      labelStyle: TextStyle(
+          fontSize: 15, color: Colors.blueAccent, fontFamily: "Quicksand"),
+      focusedBorder:
+          UnderlineInputBorder(borderSide: BorderSide(color: Colors.blue)),
+      enabledBorder:
+          UnderlineInputBorder(borderSide: BorderSide(color: Colors.blue)));
 }
 
 /* Text Field style (Color only) */
 
 TextStyle simpleStyle() {
   return TextStyle(
-    color: Colors.white,    
+    color: Colors.white,
   );
 }
 
 /* Medium Text Styler */
 TextStyle mediumStyle(Color customColor) {
-  return TextStyle(
-    color: customColor,
-    fontSize: 17    
-  );
+  return TextStyle(color: customColor, fontSize: 17);
 }
 
 // this is for the share button in video page
 Widget listInShare(context) {
   return Container(
     height: 100,
-    width: MediaQuery.of(context).size.width,    
+    width: MediaQuery.of(context).size.width,
     child: ListView(
       scrollDirection: Axis.horizontal,
       children: [
-        SizedBox(width: 20,),
+        SizedBox(
+          width: 20,
+        ),
         Column(
           children: [
             Container(
-              height: 50, width: 100,
+              height: 50,
+              width: 100,
               child: Center(
                 child: Image.asset("assets/facebook.png"),
               ),
             ),
-            SizedBox(height: 10,),
-            Text("Facebook", style: TextStyle(color: Colors.grey, fontSize: 13),)
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Facebook",
+              style: TextStyle(color: Colors.grey, fontSize: 13),
+            )
           ],
         ),
         Column(
           children: [
             Container(
-              height: 50, width: 100,
+              height: 50,
+              width: 100,
               child: Center(
                 child: Image.asset("assets/insta.png"),
               ),
             ),
-            SizedBox(height: 10,),
-            Text("Instagram", style: TextStyle(color: Colors.grey, fontSize: 13),)
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Instagram",
+              style: TextStyle(color: Colors.grey, fontSize: 13),
+            )
           ],
         ),
         Column(
           children: [
             Container(
-              height: 50, width: 100,
+              height: 50,
+              width: 100,
               child: Center(
                 child: Image.asset("assets/fbmessenger.png"),
               ),
             ),
-            SizedBox(height: 10,),
-            Text("Messenger", style: TextStyle(color: Colors.grey, fontSize: 13),)
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Messenger",
+              style: TextStyle(color: Colors.grey, fontSize: 13),
+            )
           ],
-        ),        
+        ),
         Column(
           children: [
             Container(
-              height: 50, width: 100,
+              height: 50,
+              width: 100,
               child: Center(
                 child: Image.asset("assets/whatsapp.png"),
               ),
             ),
-            SizedBox(height: 10,),
-            Text("Whatsapp", style: TextStyle(color: Colors.grey, fontSize: 13),)
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Whatsapp",
+              style: TextStyle(color: Colors.grey, fontSize: 13),
+            )
           ],
-        ),        
+        ),
         Column(
           children: [
             Container(
-              height: 50, width: 100,
+              height: 50,
+              width: 100,
               child: Center(
                 child: Image.asset("assets/msg.png"),
               ),
             ),
-            SizedBox(height: 10,),
-            Text("Message", style: TextStyle(color: Colors.grey, fontSize: 13),)
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Message",
+              style: TextStyle(color: Colors.grey, fontSize: 13),
+            )
           ],
-        ),        
+        ),
         Column(
           children: [
             Container(
-              height: 50, width: 100,
+              height: 50,
+              width: 100,
               child: Center(
                 child: Image.asset("assets/twitter.png"),
               ),
             ),
-            SizedBox(height: 10,),
-            Text("Tweet", style: TextStyle(color: Colors.grey, fontSize: 13),)
+            SizedBox(
+              height: 10,
+            ),
+            Text(
+              "Tweet",
+              style: TextStyle(color: Colors.grey, fontSize: 13),
+            )
           ],
         ),
+        SizedBox(
+          width: 10,
+        ),
+      ],
+    ),
+  );
+}
+
+// this is for the comments
+Widget commentBox(context, String username, String comment, String likes) {
+  return Container(
+    padding: EdgeInsets.symmetric(horizontal: 16),
+    width: MediaQuery.of(context).size.width,
+    height: 100,
+    child: Row(
+      children: [
+        Image.asset("assets/Profile1.png", height: 50, width: 50,),
         SizedBox(width: 10,),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(username, style: TextStyle(fontFamily: "Quicksand", fontSize: 12, color: Colors.grey),),
+            SizedBox(height: 5,),
+            Text(comment, style: TextStyle(fontFamily: "Quicksand"),)
+          ],
+        ),
+        Spacer(),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.favorite, color: Colors.grey,),
+            SizedBox(height: 5,),
+            Text(likes, style: TextStyle(fontFamily: "Quicksand", fontSize: 12, color: Colors.grey),),
+          ],
+        )
       ],
     ),
   );

@@ -112,12 +112,54 @@ class _VideoPage2State extends State<VideoPage2> {
                     ),
                     IconButton(
                         icon: Icon(
-                      Icons.add_comment,
-                      color: Colors.white,
-                      size: 30,
-                    )),
+                          Icons.add_comment,
+                          color: Colors.white,
+                          size: 30,
+                        ),
+                        onPressed: () {
+                          showModalBottomSheet(
+                            context: context,
+                            builder: (_) {
+                              return SingleChildScrollView(
+                                child: Container(
+                                  height: MediaQuery.of(context).size.height / 2,
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: 5,
+                                      ),
+                                      Text("5 comments"),
+                                      SizedBox(
+                                        height: 5,
+                                      ),
+                                      Container(
+                                        width: MediaQuery.of(context).size.width,
+                                        height: MediaQuery.of(context).size.height / 2 - 30,
+                                        child: ListView(
+                                          scrollDirection: Axis.vertical,
+                                          children: [
+                                            commentBox(context, "@xyber", "Haha", "20"),
+                                            SizedBox(height: 5,),
+                                            commentBox(context, "@samrat", "Really cool", "30"),
+                                            SizedBox(height: 5,),
+                                            commentBox(context, "@cws", "Nice", "40"),
+                                            SizedBox(height: 5,),
+                                            commentBox(context, "@abc", "Lmao", "50"),
+                                            SizedBox(height: 5,),
+                                            commentBox(context, "@def", "Lol", "60"),
+                                            SizedBox(height: 5,),
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              );
+                            });
+                        },
+                      ),
                     Text(
-                      "1539",
+                      "5",
                       style: TextStyle(color: Colors.white, fontSize: 12),
                     ),
                     SizedBox(
